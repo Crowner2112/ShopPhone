@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listProduct = ViewData["Product"] as List<Models.EF.Image>;
+}
+
+<div id="slideshow">
+    <div class="slide-wrapper">
+        <div class="slide">
+            <img src="https://thoibaonganhang.vn/stores/news_dataimages/minhvl/112020/18/11/3757_iphone-12-pro-max-1605645432-4093-1605645619.jpg">
+        </div>
+        <div class="slide">
+            <img src="https://thoibaonganhang.vn/stores/news_dataimages/minhvl/112020/18/11/3757_iphone-12-pro-max-1605645432-4093-1605645619.jpg">
+        </div>
+        <div class="slide">
+            <img src="https://thoibaonganhang.vn/stores/news_dataimages/minhvl/112020/18/11/3757_iphone-12-pro-max-1605645432-4093-1605645619.jpg">
+        </div>
+        <div class="slide">
+            <img src="https://thoibaonganhang.vn/stores/news_dataimages/minhvl/112020/18/11/3757_iphone-12-pro-max-1605645432-4093-1605645619.jpg">
+        </div>
+    </div>
+</div>
+<!-- Đồng hồ -->
+<div id="dong_ho">
+    <h2>FLASH SALES:</h2>
+    <div id="titles"></div>
+</div>
+<!-- flash sales  -->
+
+<div class="flash-sales">
+    <ul class="list-items">
+        @*@if (listSlide.Count != 0)
+            {
+                foreach (var item in listSlide)
+                {
+                    <li class="items">
+                        <a href="">
+                            <img src="@item.Link" alt=""
+                                 class="img-items">
+                            <p class="item-name">@item.Product.Name</p>
+                            <div class="item-price">
+                                <span class="new-price">@(item.Product.Price - (item.Product.Price * (decimal)0.1))</span>
+                                <span class="old-price">@item.Product.Price</span>
+                            </div>
+                        </a>
+                    </li>
+                }
+            }*@
+        <li class="items" style="display: none;">
+            <a href="">
+                <img src="https://hoanghamobile.com/i/productlist/ts/Uploads/2020/12/22/white-ok.png" alt=""
+                     class="img-items">
+                <p class="item-name">Iphone 12 pro max</p>
+                <div class="item-price">
+                    <span class="new-price">123456000</span>
+                    <span class="old-price">300000000</span>
+                </div>
+            </a>
+        </li>
+        <li class="items">
+            <a href="">
+                <img src="https://hoanghamobile.com/i/productlist/ts/Uploads/2020/09/21/SRS-XB12.png" alt=""
+                     class="img-items">
+                <p class="item-name">Iphone 13 pro max</p>
+                <div class="item-price">
+                    <span class="new-price">123456000</span>
+                    <span class="old-price">300000000</span>
+                </div>
+
+            </a>
+        </li>
+        <li class="items">
+            <a href="">
+                <img src="https://hoanghamobile.com/i/productlist/ts/Uploads/2020/09/29/thumbb.png" alt=""
+                     class="img-items">
+                <p class="item-name">Iphone 14 pro max</p>
+                <div class="item-price">
+                    <span class="new-price">123456000</span>
+                    <span class="old-price">300000000</span>
+                </div>
+
+            </a>
+        </li>
+        <li class="items">
+            <a href="">
+                <img src="https://hoanghamobile.com/i/productlist/ts/Uploads/2021/01/09/image-removebg-preview.png"
+                     alt="" class="img-items">
+                <p class="item-name">Iphone 15 pro max</p>
+                <div class="item-price">
+                    <span class="new-price">123456000</span>
+                    <span class="old-price">300000000</span>
+                </div>
+
+            </a>
+        </li>
+        <li class="items">
+            <a href="">
+                <img src="https://hoanghamobile.com/i/productlist/ts/Uploads/2020/09/24/MDR-EX15AP.png" alt=""
+                     class="img-items">
+                <p class="item-name">Iphone 16 pro max</p>
+                <div class="item-price">
+                    <span class="new-price">123456000</span>
+                    <span class="old-price">300000000</span>
+                </div>
+            </a>
+        </li>
+        <li class="items">
+            <a href="">
+                <img src="https://hoanghamobile.com/i/productlist/ts/Uploads/2020/09/24/MDR-EX15AP.png" alt=""
+                     class="img-items">
+                <p class="item-name">Iphone 16 pro max</p>
+                <div class="item-price">
+                    <span class="new-price">123456000</span>
+                    <span class="old-price">300000000</span>
+                </div>
+
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Phone  -->
+<div class="all-products">
+    <p class="products">All products</p>
+</div>
+<div class="phones" style="height: auto; width: 100%; display: flex; justify-content: center; align-items: center;">
+    <ul class="phone__list">
+        @foreach (var item in listProduct)
+        {
+            <li class="phone__item">
+                <a href="/ProductDetail/Index/@item.ProductID">
+                    <img src="@item.Link" class="img-items" style="height: 220px">
+                    <p class="item-name">@item.Product.Name</p>
+                    <div class="item-price">
+                        <span class="new-price">@((int)(item.Product.Price - (item.Product.Price * (decimal)0.1))) đ</span>
+                        <span class="old-price"><i>@item.Product.Price đ</i></span>
+                    </div>
+                </a>
+                <div class="phone-item-btn">
+                    <form action="/Cart/AddToCart/@item.ProductID">
+                        <button type="submit">Mua hàng</button>
+                    </form>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

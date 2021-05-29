@@ -1,0 +1,79 @@
+﻿@model Models.EF.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right__title">Bảng điều khiển</div>
+<p class="right__desc">Thêm sản phẩm</p>
+<div class="right__formWrapper">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="right__inputWrapper">
+            @Html.LabelFor(model => model.Name, "Tên sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="right__inputWrapper">
+            @Html.LabelFor(model => model.Price, "Giá", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="right__inputWrapper">
+            @Html.LabelFor(model => model.Warranty, "Số lượng", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Warranty, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Warranty, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="right__inputWrapper">
+            @Html.LabelFor(model => model.Discription, "Mô tả", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Discription, new { @id = "ckeContent" })
+                @Html.ValidationMessageFor(model => model.Discription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="right__inputWrapper">
+            @Html.LabelFor(model => model.BrandID, "Mã loại", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BrandID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BrandID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="right__inputWrapper">
+            @Html.LabelFor(model => model.Status, "Trạng thái", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Status)
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="right__inputWrapper">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Assets/Admin/Plugin/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("ckeContent");
+    </script>
+} 

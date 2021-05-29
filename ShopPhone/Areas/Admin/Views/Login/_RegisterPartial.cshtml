@@ -1,0 +1,16 @@
+﻿@model Models.EF.Account
+
+@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>Đăng ký</h2>
+    @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" }, "error")
+    @Html.TextBoxFor(model => model.Name, new { @placeholder = "Tên người dùng" })
+    @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email" })
+    @Html.TextBoxFor(model => model.PhoneNumber, new { @placeholder = "SDT" })
+    @Html.TextBoxFor(model => model.Address, new { @placeholder = "Địa chỉ" })
+    @Html.PasswordFor(model => model.Password, new { @placeholder = "Mật khẩu" })
+    <input type="password" name="" id="" placeholder="Nhập lại mật khẩu">
+    <input type="submit" value="Đăng ký"></input>
+    <p class="signup">Đã có tài khoản? <a href="#" onclick="toggleForm();">Đăng nhập</a></p>
+}

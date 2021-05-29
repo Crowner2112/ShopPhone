@@ -1,0 +1,89 @@
+﻿@model ShopPhone.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
+    int total = (int)Session["Total"];
+    int count = (int)Session["CountCart"];
+}
+
+<div class="noi-dung-thanh-toan">
+    @if (Model != null || count > 0)
+    {
+        <div class="noi-dung-trai">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td style="text-align:center;">Sản phẩm</td>
+                        <td>Tên</td>
+                        <td>Số lượng</td>
+                        <td>Giá</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td style="text-align:center;">
+                                <img src="@item.Image">
+                            </td>
+                            <td>@item.Name</td>
+                            <td class="so-luong">
+                                @using (Html.BeginForm("UpdateQuantity", "Cart"))
+                                {
+                                    <input type="hidden" value="@item.ProductID" name="ID_Product">
+                                    <input type="text" value="@item.Quantity" name="Quantity">
+                                    <input type="submit" value="Update" />
+                                }
+                            </td>
+                            <td style="color: #fd475a; font-weight: bold;">@item.Price</td>
+                            <td>
+                                @Ajax.ActionLink("Xóa", "Delete", new { id = item.ProductID },
+                                                       new AjaxOptions
+                                                       {
+                                                           Confirm = "Bạn có muốn xóa sản phẩm này?",
+                                                           OnComplete = "$(this).closest('tr').remove()",
+                                                           HttpMethod = "Delete"
+                                                       }, new { })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="noi-dung-phai">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="to-dam">Cộng giỏ hàng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Giao hàng</td>
+                        <td>
+                            Giao hàng miễn phí<br>
+                            Tùy chọn giao hàng sẽ được cập nhật <br>trong quá trình thanh toán.
+                            <br>
+                            Tính phí giao hàng
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tong-cong to-dam">Tổng cộng:</td>
+                        <td class="tien">@total đ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="nut-thanh-toan"><a href="/Payment">Thanh toán</a></div>
+        </div>
+    }
+    else
+    {
+        <div>Bạn chưa có sản phẩm nào trong giỏ hàng</div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

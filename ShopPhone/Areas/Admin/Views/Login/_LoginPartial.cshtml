@@ -1,0 +1,13 @@
+﻿@model ShopPhone.Areas.Admin.Models.LoginModel
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>Đăng nhập</h2>
+    @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" })
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control p_input", @autofocus = "autufocus", @placeholder = "Email" })
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control p_input", @placeholder = "Mật khẩu" });
+    <input type="submit" value="Đăng nhập"></input>
+    <p class="signup">không có tài khoản? <a href="#" onclick="toggleForm();">Đăng ký</a></p>
+    <p class="signup">Trở về <a href="/Home">trang chủ</a></p>
+}

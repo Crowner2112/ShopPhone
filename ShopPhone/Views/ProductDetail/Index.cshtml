@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var item = ViewData["Item"] as Models.EF.Product;
+    var images = ViewData["Images"] as List<Models.EF.Image>;
+}
+
+
+<div class="product-details">
+    <span class="product-name">Điện thoại @item.Name</span>
+    <div class="product-container">
+        <div class="product-img">
+            <div class="img-main">
+                <!-- Link ảnh -->
+                @foreach (var image in images)
+                {
+                    if (image.MainPic == true)
+                    {
+                        <img src="@image.Link" id="mainImg">
+                    }
+                }
+            </div>
+            <div class="product-img-overlay"></div>
+        </div>
+        <div class="product-center">
+            <span class="product-price">@((int)(item.Price - (item.Price * (decimal)0.1))) đ</span>
+            <span class="product-price-note"><i>Giá Niêm Yết: <!-- Giá cũ --><span>@((int)item.Price) đ</span>. Từ 9-11/4 Hotsale giảm sốc giá chỉ còn: <!-- Giá mới -->@((int)(item.Price - (item.Price * (decimal)0.1))) đ. Số lượng có hạn áp dụng một số thành phố.</i></span>
+            <div class="product-freeship">
+                <i class="fas fa-truck"></i> Miễn phí vận chuyển trên toàn quốc
+            </div>
+            <!-- Giỏ hàng -->
+            <div class="product-cart">
+                <a href="/Cart/AddToCart/@item.ID">Thêm vào giỏ hàng <i class="fas fa-cart-plus"></i></a>
+            </div>
+        </div>
+        <div class="product-warranty">
+            <span>Thông tin bảo hành</span>
+            <span><i class="far fa-check-circle"></i> Bảo hành chính hãng 12 tháng. Bao xài đổi trả trong 15 ngày.</span>
+        </div>
+
+        <!-- Mô tả -->
+        <div class="product-description">
+            @Html.Raw(@item.Discription)
+        </div>
+    </div>
+</div>

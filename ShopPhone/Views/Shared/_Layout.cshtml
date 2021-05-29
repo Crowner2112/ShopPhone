@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoangHaMobile</title>
+    <link rel="stylesheet" href="~/Assets/Customer/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="~/Assets/Customer/wwwroot/style.css">
+    <link rel="stylesheet" href="~/Assets/Customer/wwwroot/styles.css">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="up">
+        @Html.Partial("_Header")
+        @Html.Partial("_NavbarSearch")
+        @Html.Partial("_Category")
+    </section>
+    @RenderSection("_SlideShow", required: false)
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+    <!-- Services -->
+    <div class="all-products">
+        <p class="products">About Our Services</p>
+    </div>
+
+    <!-- Transport -->
+
+    <div class="transport">
+        <div class="genuine">
+            <i class="far fa-check-circle"></i>
+
+            <div class="genuine-product">
+                <p class="p">Sản phẩm</p>
+                <p class="b">CHÍNH HÃNG</p>
+            </div>
+        </div>
+
+        <div class="transport-glo">
+            <i class="fas fa-dolly"></i>
+
+            <div class="genuine-product">
+                <p class="p">Miễn phí vẫn chuyển</p>
+                <p class="b">TOÀN QUỐC</p>
+            </div>
+        </div>
+
+        <div class="support">
+            <i class="fas fa-headset"></i>
+
+            <div class="genuine-product">
+                <p class="p">Hotline hỗ trợ</p>
+                <p class="b">0123456789</p>
+            </div>
+        </div>
+
+        <div class="change-pay">
+            <i class="fas fa-exchange-alt"></i>
+
+            <div class="genuine-product">
+                <p class="p">Thủ tục đổi trả</p>
+                <p class="b">DỄ DÀNG</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+    <div class="contact">
+        <img src="https://hoanghamobile.com/Content/web/img/sub-logo.png" alt="" class="contact-img">
+        <div class="register">
+            <p class="re">Đăng ký nhận tin</p>
+            <p class="ree">Đăng ký để nhận những chương trình khuyến mại hot nhất của nhóm 2 - PMMNM</p>
+            <p class="reee">
+                Desgin by Group-2. PMMNM-401-A9
+            </p>
+        </div>
+        <div class="contact__input">
+            <input type="text" class="input-email" placeholder="Nhập E-mail của bạn">
+            <!-- button Email -->
+            <button type="button">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer  -->
+    <footer>
+        <div class="containerr">
+            <div class="supp-ser">
+                <p class="supp-ser-pp">
+                    Hỗ Trợ - Dịch Vụ
+                </p>
+                <ul class="supp-ser-list">
+                    <li class="supp-ser-item">
+                        <a href="">Mua hàng trả góp</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Hướng dẫn đặt hàng và thanh toán</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Chính sách bảo hành</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Câu hỏi thường gặp</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Tra cứu đơn hàng</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Chính sách bảo mật</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Chính sách hủy giao dịch, đổi trả</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Chính sách giải quyết, khiếu nại</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Điều khoản mua bán hàng hóa</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Phạm vi điều khoản gói bảo hành, mở rộng</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="supp-ser">
+                <p class="supp-ser-pp">
+                    Thông Tin Liên Hệ
+                </p>
+                <ul class="supp-ser-list">
+                    <li class="supp-ser-item">
+                        <a href="">Bán hàng Online</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Chăm sóc Khách Hàng</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Hỗ trợ Kỹ thuật</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Hỗ trợ Bảo hành & Sửa chữa</a>
+                    </li>
+                    <li class="supp-ser-item">
+                        <a href="">Liên hệ khối văn phòng</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="supp-ser">
+                <p class="supp-ser-pp">
+                    Hệ thống siêu thị, cửa hàng
+                </p>
+                <ul class="supp-ser-list">
+                    <li class="supp-ser-item">
+                        <a href="">Hệ thống 66 siêu thị, cửa hàng trên toàn quốc</a>
+                    </li>
+                </ul>
+                <div class="logo">
+                    <img src="https://lh3.googleusercontent.com/proxy/FnuGq-bskBMlJ-jbhHfrLfUPg6ea8RsCulAxqDzL-c59OMvwUACsVbuS7F1UXQUNl3pwx9uyC2_XaKcxqRwQIAdqORytjUvrldNSTIn9YG5zJ2BQ3wVvAQ"
+                         alt="">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright by Group 2 - PMMNM</p>
+            <p>Desgin by Group 2. All acts of copying without permission, subject to legal responsibility.</p>
+        </div>
+    </footer>
+
+    <script src="~/Assets/Customer/main.js"></script>
+</body>
+@RenderSection("scripts", required: false)
+</html>

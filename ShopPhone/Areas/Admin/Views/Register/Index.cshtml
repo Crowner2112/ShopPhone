@@ -1,0 +1,45 @@
+﻿@model Models.EF.Account
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Assets/Admin/css/login.css">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <!-- Sign Up -->
+            <div class="user signupBx" style="pointer-events: auto">
+                <div class="frmBx" style="top: 0">
+                    @*@Html.Partial("_RegisterPartial", Model.Account)*@
+                    @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h2>Đăng ký</h2>
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" }, "error")
+                        @Html.TextBoxFor(model => model.Name, new { @placeholder = "Họ và tên" })
+                        @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email" })
+                        @Html.TextBoxFor(model => model.PhoneNumber, new { @placeholder = "SDT" })
+                        @Html.TextBoxFor(model => model.Address, new { @placeholder = "Địa chỉ" })
+                        @Html.TextBoxFor(model => model.Password, new { @placeholder = "Mật khẩu" })
+                        <input type="submit" value="Đăng ký"></input>
+                        <div class="signup">Đã có tài khoản? <a href="/Admin/Login">Đăng nhập</a></div>
+                    }
+                </div>
+                <div class="imgBx" style="top: 0">
+                    <img src="~/Assets/Admin/image/singup.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

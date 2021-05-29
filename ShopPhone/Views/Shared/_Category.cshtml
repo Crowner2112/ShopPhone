@@ -1,0 +1,14 @@
+﻿@{
+    var listCategory = new Models.DAO.CategoryDao().GetAll();
+}
+<div class="categories">
+    <ul>
+        @foreach (var item in listCategory)
+        {
+            <li>
+                <a href="/CategoryProduct/Index/@item.ID">@item.Name</a>
+                <div class="loading-bar"></div>
+            </li>
+        }
+    </ul>
+</div>

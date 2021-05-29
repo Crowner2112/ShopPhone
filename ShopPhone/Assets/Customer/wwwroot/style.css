@@ -1,0 +1,390 @@
+/* giỏ hàng */
+.gio-hang{
+    position:fixed;
+    width:100%;
+    height:150%;
+    z-index:1000;
+    visibility: hidden;
+    opacity: 0;
+}
+.gio-hang.click-gio-hang{
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+.gio-hang .nen-den{
+    position: absolute;
+    width:100%;
+    height:150%;
+    background-color:#00000080;
+}
+.gio-hang .noi-dung{
+    position: absolute;
+    width:50%;
+    height:50%;
+    background-color:white;
+    top:50%;
+    left: 25%;
+    padding:5px;    
+    z-index:1001;
+}
+.gio-hang .noi-dung .title{
+    border-bottom: 1px solid black;
+    padding:5px;  
+}
+.gio-hang .noi-dung .san-pham{
+    overflow: scroll; 
+    overflow-x:hidden;
+    height:350px; 
+}
+.gio-hang .noi-dung table{
+    width:100%;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.gio-hang .noi-dung table tbody img{
+    width:150px;
+    height:200px;
+}
+.gio-hang .noi-dung table thead{
+    font-size:18px;
+    font-weight:bold;
+}
+.gio-hang .noi-dung table .so-luong span{
+    border: 1px solid black;
+    font-size: 20px;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+}
+.gio-hang .noi-dung table .so-luong input{
+    font-size: 20px;
+    width: 40px;
+    border: 1px solid black;
+}
+.gio-hang .noi-dung table .so-luong{
+    height:40px;
+}
+.gio-hang .noi-dung .tong-cong{
+    padding:5px;   
+    text-align: right;
+    margin-right: 15px;
+    margin-top:30px;
+}
+.gio-hang .noi-dung .nut{
+    float: right;
+}
+/* Hết giỏ hàng */
+/* Phần thanh toán */
+.table td{
+    padding: 12px 0;
+}
+.noi-dung-thanh-toan{
+    margin: 0 100px 0 100px;
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+.noi-dung-thanh-toan .noi-dung-trai{
+    width:60%
+}
+.noi-dung-trai table{
+    width: 100%;
+    color: #333;
+}
+.noi-dung-trai table, .noi-dung-trai table td{
+    border: 1px solid #999;
+    text-align: center;
+}
+.noi-dung-trai table td{
+    padding: 12px 0;
+}
+.noi-dung-trai table tbody td img {
+    width: 120px;
+    height: 120px;
+    background-repeat: no-repeat;
+    border-radius: 7px;
+    box-shadow: 0 3px 6px #00000029;
+}
+.noi-dung-trai table thead{
+    font-size:18px;
+    font-weight:bold;
+}
+.noi-dung-trai table .so-luong span:first-child{
+    font-size: 20px;
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+    background-color: #027462;
+    color: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+.noi-dung-trai table .so-luong span:last-child{
+    font-size: 20px;
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+    background-color: #027462;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+.noi-dung-trai table .so-luong span:hover{
+    background-color: #00483d;
+}
+.noi-dung-trai table .so-luong input{
+    font-size: 20px;
+    width: 40px;
+    border: 1px solid black;
+}
+.noi-dung-trai table .so-luong{
+    height:40px;
+}
+.gio-hang .noi-dung .tong-cong{
+    padding:5px;   
+    text-align: right;
+    margin-right: 15px;
+    margin-top:30px;
+}
+.noi-dung-thanh-toan .noi-dung-phai{
+    width:50%;
+    padding: 20px;
+}
+.noi-dung-phai table{
+    width: 70%;
+    color: #333;
+}
+.noi-dung-phai thead .to-dam{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #009981;
+}
+.noi-dung-phai tbody tr td{
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: center;
+}
+.noi-dung-phai tbody tr:first-child{
+    line-height: 24px;
+    font-weight: 550;
+}
+.nut-thanh-toan a, .nut-cap-nhat, .nut-quay-lai a{
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.noi-dung-phai .nut-thanh-toan {
+    width: 390px;
+    height: 50px;
+    background-color: #ec0c0c;
+    font-size: 20px;
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+.noi-dung-phai .nut-thanh-toan:hover{
+    background-color: #a50404;
+}
+.noi-dung-phai .nut-thanh-toan a{
+    color:white;   
+    text-align: center; 
+    height: 100%; 
+    line-height: 50px;
+}
+.noi-dung-phai .to-dam, .noi-dung-phai .tong-cong{
+    font-size: 19px;
+    font-weight: bold;
+}
+.noi-dung-phai .tien{
+    font-size: 19px;
+    font-weight: 550;
+    color: #fd475a;
+}
+.noi-dung-phai .nut-quay-lai-va-nut-cap-nhat{
+    display: flex;
+    width: 390px;
+    margin-top: 15px;
+}
+.noi-dung-phai .nut-quay-lai-va-nut-cap-nhat .nut-cap-nhat{
+    width: 50%;
+    height: 50px;
+    background-color: green;
+    text-align: center;
+    padding-top: 15px;
+    box-sizing: border-box;
+    color:white;
+    border-radius: 5px;
+}
+.noi-dung-phai .nut-quay-lai-va-nut-cap-nhat .nut-cap-nhat:hover{
+    background-color: rgb(2, 85, 2);
+}
+.noi-dung-phai .nut-quay-lai-va-nut-cap-nhat .nut-quay-lai{
+    background-color: orange;
+    width: 50%;
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.noi-dung-phai .nut-quay-lai-va-nut-cap-nhat .nut-quay-lai:hover{
+    background-color: rgb(189, 124, 4);
+}
+.noi-dung-phai .nut-quay-lai-va-nut-cap-nhat .nut-quay-lai a{
+    color:white;
+    text-align: center; 
+    height: 100%; 
+    line-height: 50px;
+}
+/* Hết phần thanh toán */
+/* Phần thanh toán thành công */
+.thanh-toan-thanh-cong{
+    width: 35%;
+    margin: auto;
+    text-align:center;
+    padding: 5%;
+    line-height: 70px;
+
+}
+.thanh-toan-thanh-cong .icon-tich-xanh{
+    
+}
+.thanh-toan-thanh-cong .icon-tich-xanh .icon{
+    color: #08b708;
+    font-size: 95px;
+}
+.thanh-toan-thanh-cong h1{
+
+}
+.thanh-toan-thanh-cong p{
+    text-align: center;
+    font-size: 20px;
+}
+/* Hết phần thanh toán thành công */
+/* trang đơn hàng */
+.chia-cot{
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+.chia-cot .cot-ben-trai{
+    width: 70%;
+    margin: 0 50px 0 100px;
+    color: #333;
+}
+.chia-cot .cot-ben-phai{
+    width: 30%;
+    height: fit-content;
+    margin-right: 100px;
+    padding: 20px;
+    color: #333;
+    border: 1px solid #999;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 6px;
+}
+.billing-form{
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.shipping-form{
+    padding-top: 20px;
+}
+.checkout-title{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #009981;
+}
+.form-group{
+    width: 65%;
+    padding: 12px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-group label{
+    font-size: 18px;
+    font-weight: 550;
+}
+.form-group label span{
+    color: #e42828;
+    display: inline-block;
+    margin-left: 6px;
+}
+.form-group input{
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 6px;
+    padding: 8px 0 8px 8px;
+    font-size: 14px;
+    color: #333;
+}
+.form-group input:focus-within{
+    border: 1px solid #333;
+}
+.form-group .form-select{
+    padding: 6px 0 6px 6px;
+    margin-right: 80px;
+    border-radius: 6px;
+}
+.note{
+    margin-top: 10px;
+    font-size: 18px;
+}
+.note span{
+    color: #e42828;
+    font-weight: 550;
+}
+.cart-total{
+    padding-bottom: 15px;
+}
+.checkout-cart-total ul li, .checkout-cart-total p, .checkout-cart-total h4{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.checkout-cart-total ul li:first-child{
+    padding-top: 5px;
+}
+.checkout-cart-total h4{
+    font-size: 17px;
+}
+.checkout-cart-total h4:last-child{
+    padding: 10px 0 0 0;
+    border-top: 1px solid #333;
+}
+.checkout-cart-total ul{
+    border-bottom: 1px solid #333;
+}
+.checkout-cart-total ul li{
+    font-size: 16px;
+}
+.checkout-cart-total ul li span, .checkout-cart-total p span, .checkout-cart-total h4 span{
+    color: #fd475a;
+    font-weight: 550;
+}
+.payment-method{
+    padding-top: 15px;
+}
+.single-method{
+    margin: 10px 0;
+}
+.single-method label{
+    font-size: 17px;
+    margin-left: 4px;
+    font-weight: bold;
+}
+.single-method p{
+    font-size: 16px;
+    padding-top: 5px;
+    text-align: justify;
+}
+.place-order{
+    cursor: pointer;
+    background-color: #e44040;
+}
+.place-order:hover{
+    background-color: #e42828;
+}
+/* hết trang đơn hàng */
