@@ -7,33 +7,38 @@
     var total = (int)Session["Total"];
 }
 
-@using (Html.BeginForm("Execute", "Payment", FormMethod.Post))
+@using (Html.BeginForm("Execute", "Payment", FormMethod.Post, new { @Name = "paymentform", @onsubmit = "return validateForm();" }))
 {
     @Html.AntiForgeryToken()
     <div class="chia-cot">
         <div class="cot-ben-trai">
             <div id="billing-form" class="billing-form">
-                <h4 class="checkout-title">Địa chỉ hóa đơn</h4>
-
+                <h4 class="checkout-title">Hóa đơn</h4>
                 <div class="row">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.OwnerName, "Họ tên người nhận", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.PhoneNumber, "Số điện thoại", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Address, "Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
                 <div class="note">
                     (<span> * </span>: bắt buộc phải nhập)
                 </div>
+                @if (Model.OwnerName == null)
+                {
+                    <div class="note">
+                        <p>Bạn có sẵn tài khoản? <a href="/Admin/Login">Đăng nhập</a></p>
+                    </div>
+                }
             </div>
         </div>
         <div class="cot-ben-phai">
@@ -51,7 +56,7 @@
                         <ul>
                             @foreach (var cartItem in cart)
                             {
-                            <li>@cartItem.Name X @cartItem.Quantity: <span>@((int)cartItem.Price)</span></li>
+                                <li>@cartItem.Name X @cartItem.Quantity: <span>@((int)cartItem.Price)</span></li>
                             }
                         </ul>
 
@@ -67,4 +72,30 @@
             </div>
         </div>
     </div>
+}
+
+@section scripts{
+    <script type="text/javascript">
+        function validateForm() {
+            var phonenumber = document.paymentform.phonenumber.value;
+            var name = document.paymentform.name.value;
+            var address = document.paymentform.address.value;
+            if (phonenumber == null || phonenumber == "") {
+                alert("So dien thoai khong duoc trong");
+                return false;
+            }
+            else if (phonenumber.length < 10) {
+                alert("So dien thoai phai co it nhat 10 chu so");
+                return false;
+            }
+            else if (name == null || name == "") {
+                alert("Ho ten khong duoc trong");
+                return false;
+            }
+            else if (address == null || address == "") {
+                alert("Dia chi khong duoc trong");
+                return false;
+            }
+        }
+    </script>
 }

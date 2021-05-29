@@ -33,7 +33,11 @@ namespace ShopPhone.Controllers
         {
             var pro = new ProductDao().GetById(id);
             var image = new ImageDao().GetMainPicByProID(id);
-            GetCart().Add(pro.ID, pro.Name, image.Link, pro.Price * (decimal)0.9);
+            var result = GetCart().Add(pro.ID, pro.Name, image.Link, pro.Price * (decimal)0.9);
+            if (result)
+            {
+                Session["CountCart"] = (int)Session["CountCart"] + 1;
+            }
             return RedirectToAction("Index", "Cart");
         }
         public ActionResult UpdateQuantity(FormCollection form)

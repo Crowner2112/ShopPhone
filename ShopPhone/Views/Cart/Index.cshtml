@@ -40,12 +40,12 @@
                             <td style="color: #fd475a; font-weight: bold;">@item.Price</td>
                             <td>
                                 @Ajax.ActionLink("Xóa", "Delete", new { id = item.ProductID },
-                                                       new AjaxOptions
-                                                       {
-                                                           Confirm = "Bạn có muốn xóa sản phẩm này?",
-                                                           OnComplete = "$(this).closest('tr').remove()",
-                                                           HttpMethod = "Delete"
-                                                       }, new { })
+         new AjaxOptions
+         {
+             Confirm = "Bạn có muốn xóa sản phẩm này?",
+             OnComplete = "$(this).closest('tr').remove()",
+             HttpMethod = "Delete"
+         }, new { })
                             </td>
                         </tr>
                     }

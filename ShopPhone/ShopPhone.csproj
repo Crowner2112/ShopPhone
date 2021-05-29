@@ -2584,8 +2584,8 @@
     <Content Include="Assets\Customer\fontawesome-free-5.11.2-web\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Admin\Views\Login\_LoginPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Login\_RegisterPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

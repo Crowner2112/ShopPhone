@@ -9,10 +9,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background-image: url("./assets/image/bachground.jpg");
+body {
+    background-image: url('../image/bachground.jpg');
     background-repeat: no-repeat;
-    /* background-size: cover; */
+     background-size: cover; 
 }
 
 section{

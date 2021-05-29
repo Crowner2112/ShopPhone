@@ -20,18 +20,18 @@
             <!-- Sign Up -->
             <div class="user signupBx" style="pointer-events: auto">
                 <div class="frmBx" style="top: 0">
-                    @*@Html.Partial("_RegisterPartial", Model.Account)*@
-                    @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                    @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { @Name = "myform2", @onsubmit = "return validateForm2();" }))
                     {
                         @Html.AntiForgeryToken()
                         <h2>Đăng ký</h2>
                         @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" }, "error")
-                        @Html.TextBoxFor(model => model.Name, new { @placeholder = "Họ và tên" })
-                        @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email" })
-                        @Html.TextBoxFor(model => model.PhoneNumber, new { @placeholder = "SDT" })
-                        @Html.TextBoxFor(model => model.Address, new { @placeholder = "Địa chỉ" })
-                        @Html.TextBoxFor(model => model.Password, new { @placeholder = "Mật khẩu" })
-                        <input type="submit" value="Đăng ký"></input>
+                        @Html.EditorFor(model => model.Name, new {@Name = "username", htmlAttributes = new { placeholder = "Họ và tên"} })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email", @Name = "email" } })
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @placeholder = "SDT", @Name = "phonenumber" } })
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @placeholder = "Địa chỉ", @Name = "address" } })
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Mật khẩu", type = "password" }, @Name = "createpass"})
+                        <input type="password" name="confirmpass" id="" placeholder="Nhập lại mật khẩu">
+                        <input type="submit" value="Đăng ký" />
                         <div class="signup">Đã có tài khoản? <a href="/Admin/Login">Đăng nhập</a></div>
                     }
                 </div>
@@ -42,4 +42,5 @@
         </div>
     </section>
 </body>
+<script src="~/Assets/Admin/js/mainLogin.js"></script>
 </html>

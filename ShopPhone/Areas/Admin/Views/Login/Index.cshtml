@@ -25,13 +25,13 @@
                 </div>
                 <div class="frmBx">
                     @*@Html.Partial("_LoginPartial", Model.LoginModel)*@
-                    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @Name = "myform", @onsubmit = "return validateForm();" }))
                     {
-                        @Html.AntiForgeryToken()
+                        @*@Html.AntiForgeryToken()*@
                         <h2>Đăng nhập</h2>
                         @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color: red" })
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control p_input", @autofocus = "autufocus", @placeholder = "Email" })
-                        @Html.PasswordFor(model => model.Password, new { @class = "form-control p_input", @placeholder = "Mật khẩu" });
+                        @Html.TextBoxFor(model => model.Email, new { @Name = "email", @class = "form-control p_input", @autofocus = "autufocus", @placeholder = "Email" })
+                        @Html.PasswordFor(model => model.Password, new { @Name = "password", @class = "form-control p_input", @placeholder = "Mật khẩu" });
                         <input type="submit" value="Đăng nhập"></input>
                         <p class="signup">không có tài khoản? <a href="/Admin/Register">Đăng ký</a></p>
                         <p class="signup">Trở về <a href="/Home">trang chủ</a></p>
@@ -40,6 +40,6 @@
             </div>
         </div>
     </section>
-    <script src="~/Assets/Admin/js/mainLogin.js"></script>
+<script type="text/javascript" src="~/Assets/Admin/js/mainLogin.js"></script>
 </body>
 </html>

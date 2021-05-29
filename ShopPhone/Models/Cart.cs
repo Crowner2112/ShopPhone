@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace ShopPhone.Models
@@ -19,7 +20,7 @@ namespace ShopPhone.Models
         {
             get { return items; }
         }
-        public void Add(int proID, string name, string image, decimal? price, int quantity = 1)
+        public bool Add(int proID, string name, string image, decimal? price, int quantity = 1)
         {
             var item = items.FirstOrDefault(x => x.ProductID == proID);
             if (item == null)
@@ -32,11 +33,13 @@ namespace ShopPhone.Models
                     Quantity = quantity,
                     Price = price
                 });
+                return true;
             }
             else
             {
                 item.Quantity++;
                 item.Price *= item.Quantity;
+                return false;
             }
         }
         public void Update(int id, int quantity, decimal? price)

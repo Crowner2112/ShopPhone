@@ -29,29 +29,36 @@ namespace ShopPhone.Controllers
         [HttpPost]
         public ActionResult Execute(Order order)
         {
-            var orderDao = new OrderDao();
-            order.CreatedDate = DateTime.Now;
-            order.Status = false;
-            order.TotalPrice = (int)Session["Total"] + 30000;
-            var idOrder = orderDao.Insert(order);
-            if (idOrder >= 0)
+            if (ModelState.IsValid)
             {
-                Cart cart = Session["Cart"] as Cart;
-                var listCart = cart.Items.ToList();
-                foreach (var item in listCart)
+                var orderDao = new OrderDao();
+                order.CreatedDate = DateTime.Now;
+                order.Status = false;
+                order.TotalPrice = (int)Session["Total"] + 30000;
+                var idOrder = orderDao.Insert(order);
+                if (idOrder >= 0)
                 {
-                    var orderDetail = new OrderDetail();
-                    orderDetail.OrderID = idOrder;
-                    orderDetail.ProductID = item.ProductID;
-                    orderDetail.Quantity = item.Quantity;
-                    new OrderDetailDao().Create(orderDetail);
+                    Cart cart = Session["Cart"] as Cart;
+                    var listCart = cart.Items.ToList();
+                    foreach (var item in listCart)
+                    {
+                        var orderDetail = new OrderDetail();
+                        orderDetail.OrderID = idOrder;
+                        orderDetail.ProductID = item.ProductID;
+                        orderDetail.Quantity = item.Quantity;
+                        new OrderDetailDao().Create(orderDetail);
+                    }
+                    Session["Cart"] = new Cart();
                 }
-                Session["Cart"] = new Cart();
+                return new ContentResult()
+                {
+                    Content = "<script language='javascript' type='text/javascript'>alert('Đơn hàng được tạo thành công! Cảm ơn quý khách hàng!');location.href='/'</script>"
+                };
             }
-            return new ContentResult()
+            else
             {
-                Content = "<script language='javascript' type='text/javascript'>alert('Đơn hàng được tạo thành công! Cảm ơn quý khách hàng!');location.href='/'</script>"
-            };
+                return RedirectToAction("Index", "Payment");
+            }
         }
     }
 }

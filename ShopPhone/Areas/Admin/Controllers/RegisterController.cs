@@ -37,6 +37,13 @@ namespace ShopPhone.Areas.Admin.Controllers
                     };
                 }
             }
+            else
+            {
+                return new ContentResult()
+                {
+                    Content = "<script language='javascript' type='text/javascript'>alert('Đăng ký thất bại!');location.href='/Admin/Login'</script>"
+                };
+            }
             return RedirectToAction("Index", "Login");
         }
     }
