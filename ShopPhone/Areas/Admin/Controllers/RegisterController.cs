@@ -21,6 +21,7 @@ namespace ShopPhone.Areas.Admin.Controllers
             {
                 var dao = new AccountDao();
                 account.Password = Encryptor.MD5Hash(account.Password);
+                account.Role = false;
                 var result = dao.Create(account);
                 if (!result)
                 {
@@ -44,7 +45,6 @@ namespace ShopPhone.Areas.Admin.Controllers
                     Content = "<script language='javascript' type='text/javascript'>alert('Đăng ký thất bại!');location.href='/Admin/Login'</script>"
                 };
             }
-            return RedirectToAction("Index", "Login");
         }
     }
 }

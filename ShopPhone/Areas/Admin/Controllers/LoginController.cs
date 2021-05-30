@@ -32,7 +32,7 @@ namespace ShopPhone.Areas.Admin.Controllers
                 }
                 else if (result == 0)
                 {
-                    ModelState.AddModelError("", "This account does not exsits");
+                    ModelState.AddModelError("", "Tài khoản này không tồn tại!");
                 }
                 else if (result == -2)
                 {
@@ -45,7 +45,7 @@ namespace ShopPhone.Areas.Admin.Controllers
                 }
                 else if (result == -1)
                 {
-                    ModelState.AddModelError("", "Incorect password");
+                    ModelState.AddModelError("", "Sai mật khẩu hoặc email");
                 }
             }
             return View("Index");

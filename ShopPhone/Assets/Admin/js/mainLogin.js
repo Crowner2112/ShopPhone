@@ -18,7 +18,7 @@ function validateForm() {
         alert("Email khong duoc de trong!!");
         document.myform.email.focus();
         return false;
-    } else if (password.length < 4 || password == "") {
+    } else if (password.length <  || password == "") {
         alert("Password co do dai >=8 va khong duoc de trong!!!");
         document.myform.password.focus();
         return false;
