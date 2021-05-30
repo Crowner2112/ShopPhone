@@ -26,7 +26,7 @@ namespace Models.DAO
         {
             return db.Accounts.Find(id);
         }
-        public object ViewDetail(int id)
+        public Account ViewDetail(int id)
         {
             return db.Accounts.Find(id);
         }

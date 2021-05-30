@@ -55,6 +55,11 @@ namespace ShopPhone.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new AccountDao();
+                var oldAcc = dao.GetById(Account.ID);
+                if (oldAcc.Password != Account.Password)
+                {
+                    Account.Password = Encryptor.MD5Hash(Account.Password);
+                }
                 var result = dao.Update(Account);
                 if (result)
                 {
@@ -62,7 +67,7 @@ namespace ShopPhone.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Modify successfully");
+                    ModelState.AddModelError("", "Modify error!");
                 }
             }
             return RedirectToAction("Index");
